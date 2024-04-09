@@ -1,8 +1,8 @@
 package org.divyansh.calculator.tokens;
 
 public enum OperatorType {
-    ADDITION,
-    SUBTRACTION,
+    PLUS,
+    MINUS,
     NEGATION,
     DIVISION,
     MULTIPLICATION,
@@ -14,8 +14,8 @@ public enum OperatorType {
 
     public static OperatorType getType(char c) {
         return switch (c) {
-            case '+' -> ADDITION;
-            case '-' -> SUBTRACTION;
+            case '+' -> PLUS;
+            case '-' -> MINUS;
             case '*' -> MULTIPLICATION;
             case '/' -> DIVISION;
             case '!' -> FACTORIAL;

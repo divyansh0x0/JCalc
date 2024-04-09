@@ -1,11 +1,15 @@
 package org.divyansh.calculator;
 
+import material.utils.Log;
 import org.divyansh.calculator.tokens.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Stack;
 
 public class Lexer {
     private final ArrayList<Token> tokenArrayList = new ArrayList<>();
+    private final Stack<Character> bracketsStack = new Stack<>();
     private int nextIndex = 0;
     private final StringBuffer SB = new StringBuffer();
 
@@ -23,9 +27,12 @@ public class Lexer {
                 String num = evaluateNumber(arr, i);
                 i += num.length() - 1;
                 token = new NumberToken(num);
-            } else if (c == '(') {
+            } else if (c == '(' || c == '[' || c == '{') {
+                bracketsStack.push(c);
                 token = BracketToken.OPEN;
-            } else if (c == ')') {
+            } else if (c == ')' || c == ']' || c == '}') {
+                if(!isValidClosingBracket(c))
+                    throw new RuntimeException("Invalid closing bracket " + c+ " at " + i + " in " + Arrays.toString(arr));
                 token = BracketToken.CLOSE;
             } else if (isOperator(c)) {
                 token = new OperatorToken(c);
@@ -33,6 +40,15 @@ public class Lexer {
             if (token != null)
                 tokenArrayList.add(token);
         }
+        if(!bracketsStack.isEmpty())
+            throw new RuntimeException(Arrays.toString(arr) + " does not have appropriate closing brackets ");
+    }
+
+    private boolean isValidClosingBracket(char bracketClose) {
+        if(bracketsStack.empty())
+            return true;
+        char bracketOpen = bracketsStack.pop();
+        return bracketOpen == '(' ? bracketClose == ')' : bracketOpen  == '{' ? bracketClose == '}' : bracketOpen == '[' && bracketClose == ']';
     }
 
     private String evaluateNumber(char[] arr, int index) {

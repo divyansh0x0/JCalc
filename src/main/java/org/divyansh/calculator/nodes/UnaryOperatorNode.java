@@ -3,7 +3,6 @@ package org.divyansh.calculator.nodes;
 import org.divyansh.calculator.tokens.OperatorToken;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class UnaryOperatorNode implements Node {
     private final Node val;
@@ -22,6 +21,12 @@ public class UnaryOperatorNode implements Node {
             case FACTORIAL -> {
                 long val = operand.longValue();
                 return BigDecimal.valueOf(getFactorial(val));
+            }
+            case MINUS -> {
+                return operand.negate();
+            }
+            case PLUS -> {
+                return operand;
             }
             default -> throw  new UnsupportedOperationException("UNSUPPORTED OPERATOR: " + op);
         }
