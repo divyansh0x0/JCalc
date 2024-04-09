@@ -3,7 +3,6 @@ package org.divyansh.calculator.tokens;
 public enum OperatorType {
     PLUS,
     MINUS,
-    NEGATION,
     DIVISION,
     MULTIPLICATION,
     EXPONENTIATION,

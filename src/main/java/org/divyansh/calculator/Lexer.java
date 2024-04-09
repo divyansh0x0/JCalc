@@ -14,7 +14,6 @@ public class Lexer {
     private final StringBuffer SB = new StringBuffer();
 
     public Lexer(String exp) {
-        exp = exp.replaceAll(" ", "");
         char[] charArr = exp.toCharArray();
         parseCharArray(charArr);
     }
@@ -36,9 +35,13 @@ public class Lexer {
                 token = BracketToken.CLOSE;
             } else if (isOperator(c)) {
                 token = new OperatorToken(c);
+            } else if (Character.isWhitespace(c)) {
+                continue;
             }
-            if (token != null)
-                tokenArrayList.add(token);
+            else {
+                throw new RuntimeException("Invalid character: " + c+ " at " + i + " in " + Arrays.toString(arr));
+            }
+            tokenArrayList.add(token);
         }
         if(!bracketsStack.isEmpty())
             throw new RuntimeException(Arrays.toString(arr) + " does not have appropriate closing brackets ");

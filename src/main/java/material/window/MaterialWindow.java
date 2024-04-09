@@ -51,7 +51,7 @@ public class MaterialWindow extends JFrame {
     private boolean isMouseOnMaximizeBtn = false;
     private final AtomicBoolean isMouseOnDragArea = new AtomicBoolean(false);
 
-    private final MaterialPanel defaultCaptionBar = new MaterialPanel(new MigLayout("debug,fill"));
+    private final MaterialPanel defaultCaptionBar = new MaterialPanel(new MigLayout("fill"));
     private MaterialPanel currentCaptionBar;
     private int CAPTION_BAR_HEIGHT = 30;
 

@@ -19,7 +19,7 @@ public class UnaryOperatorNode implements Node {
             throw new NullPointerException("OPERAND IS NULL FOR UNARY OPERATOR: " + op);
         switch (op.getOperatorType()){
             case FACTORIAL -> {
-                long val = operand.longValue();
+                double val = operand.doubleValue();
                 return BigDecimal.valueOf(getFactorial(val));
             }
             case MINUS -> {
@@ -32,8 +32,10 @@ public class UnaryOperatorNode implements Node {
         }
     }
 
-    private long getFactorial(long val) {
-        long fact = 1;
+    private double getFactorial(double val) {
+        if(val % 1 != 0)
+            throw new RuntimeException("Cannot find factorial of " + val + " as it is not a whole number");
+        double fact = 1;
         while (val > 0){
             fact *= val;
             val--;
@@ -43,6 +45,6 @@ public class UnaryOperatorNode implements Node {
 
     @Override
     public String toString() {
-        return "[(" + op + ") --> "+" (val)]";
+        return "[(" + op + ") --> "+" ("+val+")]";
     }
 }

@@ -13,11 +13,11 @@ public class Parser {
         Lexer lexer = new Lexer(exp);
         Node root = parseExpression(lexer);
         Log.info("AST:" + root);
-        return stripTrailingZeroes(root.evaluateValue().toString());
+        return stripTrailingZeroes(root.evaluateValue().toPlainString());
     }
 
     private static String stripTrailingZeroes(String s) {
-        return  s.contains(".") ? s.replaceAll("0*$","").replaceAll("\\.$","") : s;
+        return s.contains(".") ? s.replaceAll("0*$", "").replaceAll("\\.$", "") : s;
     }
 
 
@@ -25,7 +25,7 @@ public class Parser {
         Node leftTerm = parseTerm(lexer);
         Token token = lexer.nextToken();
         if (leftTerm != null && token != null) {
-            if(!token.equals(BracketToken.CLOSE)) {
+            if (!token.equals(BracketToken.CLOSE)) {
                 if (token.getTokenType().equals(TokenType.OPERATOR)) {
                     OperatorToken op = (OperatorToken) token;
                     switch (op.getOperatorType()) {
@@ -53,12 +53,12 @@ public class Parser {
                 switch (op.getOperatorType()) {
                     case MULTIPLICATION, DIVISION, REMAINDER -> {
 //                        Log.info("op:"+op);
-                       term= new BinaryOperatorNode(term, op, parseFactor(lexer));
+                        term = new BinaryOperatorNode(term, op, parseFactor(lexer));
                     }
-                    default -> throw new UnsupportedOperationException("INVALID TOKEN IN TERM: " + nextToken + " at index " + lexer.getCurrIndex());
+                    default ->
+                            throw new UnsupportedOperationException("INVALID TOKEN IN TERM: " + nextToken + " at index " + lexer.getCurrIndex());
                 }
-            }
-            else
+            } else
                 throw new UnsupportedOperationException("INVALID TOKEN IN TERM: " + nextToken + " at index " + lexer.getCurrIndex());
         }
         return term;
@@ -81,23 +81,15 @@ public class Parser {
                 NumberNode n1 = new NumberNode((NumberToken) token);
                 Token nextToken = lexer.seekToken();
                 if (nextToken != null && nextToken.getTokenType().equals(TokenType.OPERATOR)) {
-                    switch (((OperatorToken)nextToken).getOperatorType()){
+                    switch (((OperatorToken) nextToken).getOperatorType()) {
                         case EXPONENTIATION -> {
                             OperatorToken op = (OperatorToken) lexer.nextToken();
-                            Token expToken = lexer.nextToken();
-                            Node exp = null;
-                            if (expToken.getTokenType().equals(TokenType.NUMBER))
-                                exp = new NumberNode((NumberToken) expToken);
-                            else if(expToken.getValue().equals("("))
-                                exp = parseExpression(lexer);
-                            if(exp != null)
-                                return new BinaryOperatorNode(n1, op, exp);
-                            else
-                                throw new UnsupportedOperationException("EXPONENTIATION IS MISSING EXPONENT");
+                            Node exp = parseFactor(lexer);
+                            return new BinaryOperatorNode(n1, op, exp);
                         }
                         case FACTORIAL -> {
                             OperatorToken op = (OperatorToken) lexer.nextToken();
-                            return new UnaryOperatorNode(op,n1);
+                            return new UnaryOperatorNode(op, n1);
                         }
                     }
 
@@ -111,11 +103,12 @@ public class Parser {
             }
             case OPERATOR -> {
                 OperatorToken op = (OperatorToken) token;
-                switch (((OperatorToken) token).getOperatorType()){
+                switch (((OperatorToken) token).getOperatorType()) {
                     case MINUS, PLUS -> {
-                        return new UnaryOperatorNode(op,parseFactor(lexer));
+                        return new UnaryOperatorNode(op, parseFactor(lexer));
                     }
-                    default -> throw new UnsupportedOperationException("INVALID UNARY OPERATOR: " + token + " at index " + lexer.getCurrIndex());
+                    default ->
+                            throw new UnsupportedOperationException("INVALID UNARY OPERATOR: " + token + " at index " + lexer.getCurrIndex());
 
                 }
             }

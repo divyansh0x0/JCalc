@@ -11,9 +11,16 @@ class ParserTest {
     void evaluate() {
         assertEquals("3", Parser.evaluate("9/9*3"));
         assertEquals("27", Parser.evaluate("9*9/3"));
+        assertEquals("0", Parser.evaluate("3%3/3"));
+        assertEquals("1", Parser.evaluate("3/3%3"));
+
+        assertEquals("4800", Parser.evaluate("4.8 * 10^3"));
+        assertEquals("4.8", Parser.evaluate("4800 * 10^-3"));
+
         assertEquals("12", Parser.evaluate("3!*(6/3*[3/3/{3/3}])"));
         assertEquals("-12", Parser.evaluate("-(3!*(6/3*[3/3/{3/3}]))"));
-        assertEquals("24", Parser.evaluate("-(4!/2*(6/-3*[3/3/{3/3}]))"));
+        assertEquals("24", Parser.evaluate("-(-4!/-2*(6/-3*[3/3/{3/3}]))"));
+        assertEquals("24", Parser.evaluate("-(-4!/-2*(6/-3*[3/3/{3/3}]))"));
 
         assertEquals("148", Parser.evaluate(" 100 + 8 * 2 *3^3/3^2 + 200/3 * 3/2 - 100"));
         assertEquals("48", Parser.evaluate("100 + (8 * 2) *((3^3)/3^2) - 100"));

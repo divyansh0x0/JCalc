@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Parser added, it does right to left parsing instead of left to write because of a big design flaw i guess.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/LexingException.java" afterDir="false" />
+    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="WORKS EVERYTHING FU****G WORKS">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/BinaryOperatorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/BinaryOperatorNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/UnaryOperatorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/UnaryOperatorNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,14 +54,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -108,7 +113,7 @@
       <recent name="org.divyansh.calculator" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ComplexCalculator [test]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.divyansh.Main" />
       <module name="ComplexCalculator.main" />
@@ -247,11 +252,20 @@
       <option name="project" value="LOCAL" />
       <updated>1704474398499</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="WORKS EVERYTHING FU****G WORKS">
+      <option name="closed" value="true" />
+      <created>1712659383221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712659383221</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="base complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="base complete" />
+    <MESSAGE value="WORKS EVERYTHING FU****G WORKS" />
+    <option name="LAST_COMMIT_MESSAGE" value="WORKS EVERYTHING FU****G WORKS" />
   </component>
 </project>
