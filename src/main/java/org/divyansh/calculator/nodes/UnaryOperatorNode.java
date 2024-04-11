@@ -1,5 +1,6 @@
 package org.divyansh.calculator.nodes;
 
+import org.divyansh.calculator.BigDecimalMath;
 import org.divyansh.calculator.tokens.OperatorToken;
 
 import java.math.BigDecimal;
@@ -19,8 +20,7 @@ public class UnaryOperatorNode implements Node {
             throw new NullPointerException("OPERAND IS NULL FOR UNARY OPERATOR: " + op);
         switch (op.getOperatorType()){
             case FACTORIAL -> {
-                double val = operand.doubleValue();
-                return BigDecimal.valueOf(getFactorial(val));
+                return BigDecimalMath.getFactorial(operand);
             }
             case MINUS -> {
                 return operand.negate();
@@ -32,16 +32,7 @@ public class UnaryOperatorNode implements Node {
         }
     }
 
-    private double getFactorial(double val) {
-        if(val % 1 != 0)
-            throw new RuntimeException("Cannot find factorial of " + val + " as it is not a whole number");
-        double fact = 1;
-        while (val > 0){
-            fact *= val;
-            val--;
-        }
-        return fact;
-    }
+
 
     @Override
     public String toString() {

@@ -1,13 +1,14 @@
 package org.divyansh.calculator.nodes;
 
+import org.divyansh.calculator.BigDecimalMath;
 import org.divyansh.calculator.tokens.OperatorToken;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+
+import static org.divyansh.calculator.BigDecimalMath.MATH_CONTEXT;
 
 public class BinaryOperatorNode implements Node{
-    private static final int DIVISION_SCALE = 16;
-    private static final RoundingMode roundingMode = RoundingMode.HALF_EVEN;
+
 
     private final Node leftOperand;
     private final Node rightOperand;
@@ -28,6 +29,7 @@ public class BinaryOperatorNode implements Node{
     public BigDecimal evaluateValue() {
         final BigDecimal leftOperand = this.leftOperand.evaluateValue();
         final BigDecimal rightOperand = this.rightOperand.evaluateValue();
+
 //        Log.info("EVALUATING: " + leftOperand+ op + rightOperand);
 
         if(leftOperand == null)
@@ -37,19 +39,10 @@ public class BinaryOperatorNode implements Node{
         return switch (op.getOperatorType()){
             case PLUS -> leftOperand.add(rightOperand);
             case MINUS -> leftOperand.subtract(rightOperand);
-            case DIVISION -> {
-                yield leftOperand.divide(rightOperand,DIVISION_SCALE, roundingMode);
-            }
+            case DIVISION -> leftOperand.divide(rightOperand, BigDecimalMath.MATH_CONTEXT);
             case MULTIPLICATION -> leftOperand.multiply(rightOperand);
             case REMAINDER -> leftOperand.remainder(rightOperand);
-            case EXPONENTIATION -> {
-                    int exp = Integer.parseInt(rightOperand.toString());
-                    if(exp<0){
-                        yield  BigDecimal.ONE.divide(leftOperand,DIVISION_SCALE,roundingMode).pow(-exp);
-                    }
-                    else
-                        yield  leftOperand.pow(exp);
-            }
+            case EXPONENTIATION -> BigDecimalMath.pow(leftOperand,rightOperand);
             default -> throw new UnsupportedOperationException("UNKNOWN OPERATION: " + op);
         };
     }

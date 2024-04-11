@@ -1,12 +1,15 @@
 package org.divyansh.calculator.tokens;
 
 import material.utils.Log;
+import org.divyansh.calculator.BigDecimalMath;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 import java.util.Objects;
 
 public class NumberToken implements Token {
+    public static final Token PI = new NumberToken(BigDecimalMath.PI.toString());
     private final BigDecimal bigInteger;
 
     public NumberToken(String val) {

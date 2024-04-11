@@ -1,6 +1,6 @@
 package org.divyansh.calculator.tokens;
 
-public enum FunctionTypes {
+public enum FunctionType {
     ABSOLUTE_VALUE,
     SIN,
     COS,
@@ -8,12 +8,11 @@ public enum FunctionTypes {
     SEC,
     COSEC,
     COT,
-    LOG_2,
-    LOG_10,
-    LOG_E,
-    LOG_X,
+    LOG,
     SIGNUM,
     CEIL,
     FLOOR,
-    ROUND
+   POWER,
+    ROUND,
+    UNKNOWN
 }

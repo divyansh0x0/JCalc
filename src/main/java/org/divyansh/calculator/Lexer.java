@@ -2,6 +2,9 @@ package org.divyansh.calculator;
 
 import material.utils.Log;
 import org.divyansh.calculator.tokens.*;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,21 +15,28 @@ public class Lexer {
     private final Stack<Character> bracketsStack = new Stack<>();
     private int nextIndex = 0;
     private final StringBuffer SB = new StringBuffer();
+    private ArrayList<String> tempArgsArr =new ArrayList<>();
 
-    public Lexer(String exp) {
+    public Lexer(@NotNull String exp) {
         char[] charArr = exp.toCharArray();
         parseCharArray(charArr);
     }
 
-    private void parseCharArray(char[] arr) {
-        Token token = null;
+    private void parseCharArray(char @NotNull [] arr) {
+        Token token;
+        EvaluationResult evalResult;
         for (int i = 0; i < arr.length; i++) {
             char c = arr[i];
             if (Character.isDigit(c)) {
-                String num = evaluateNumber(arr, i);
-                i += num.length() - 1;
-                token = new NumberToken(num);
-            } else if (c == '(' || c == '[' || c == '{') {
+                evalResult = evaluateNumber(arr, i);
+                i = evalResult.newIndex;
+                token = new NumberToken(evalResult.result);
+            }
+            else if(i+1<arr.length && Character.toLowerCase(c) == 'p' && Character.toLowerCase(arr[i+1]) == 'i'){
+                i++;
+                token = NumberToken.PI;
+            }
+            else if (c == '(' || c == '[' || c == '{') {
                 bracketsStack.push(c);
                 token = BracketToken.OPEN;
             } else if (c == ')' || c == ']' || c == '}') {
@@ -38,6 +48,13 @@ public class Lexer {
             } else if (Character.isWhitespace(c)) {
                 continue;
             }
+            else if(c==','){
+                token = new CommaToken();
+            }
+            else if ((evalResult = parseFunction(arr,i)) != null) {
+                token= new FunctionToken(evalResult.result);
+                i = evalResult.newIndex;
+            }
             else {
                 throw new RuntimeException("Invalid character: " + c+ " at " + i + " in " + Arrays.toString(arr));
             }
@@ -45,6 +62,39 @@ public class Lexer {
         }
         if(!bracketsStack.isEmpty())
             throw new RuntimeException(Arrays.toString(arr) + " does not have appropriate closing brackets ");
+    }
+    @Contract("_, _ -> new")
+    private @NotNull EvaluationResult evaluateNumber(char @NotNull [] arr, int i) {
+        while (i < arr.length) {
+            char c = arr[i];
+            if (Character.isDigit(c) || c == '.')
+                SB.append(c);
+            else
+                break;
+            i++;
+        }
+        String num = SB.toString();
+        SB.delete(0, SB.length());
+        return new EvaluationResult(num,i - 1);
+    }
+    private @Nullable EvaluationResult parseFunction(char @NotNull [] arr, int i) {
+        for (; i  < arr.length ;i++) {
+            char c = arr[i];
+            if(Character.isAlphabetic(c)){
+                SB.append(c);
+            }
+            else if(Character.isDigit(c) && SB.toString().equalsIgnoreCase("log")){
+                EvaluationResult r = evaluateNumber(arr,i);
+                i = r.newIndex;
+                SB.append(r);
+            }
+            else {
+                break;
+            }
+        }
+        String name = SB.toString();
+        SB.delete(0,SB.length());
+        return name.isEmpty() ? null : new EvaluationResult(name,i-1);
     }
 
     private boolean isValidClosingBracket(char bracketClose) {
@@ -54,19 +104,7 @@ public class Lexer {
         return bracketOpen == '(' ? bracketClose == ')' : bracketOpen  == '{' ? bracketClose == '}' : bracketOpen == '[' && bracketClose == ']';
     }
 
-    private String evaluateNumber(char[] arr, int index) {
-        while (index < arr.length) {
-            char c = arr[index];
-            if (Character.isDigit(c) || c == '.')
-                SB.append(c);
-            else
-                break;
-            index++;
-        }
-        String num = SB.toString();
-        SB.delete(0, SB.length());
-        return num;
-    }
+
 
     public int getCurrIndex() {
         return nextIndex - 1;
@@ -97,5 +135,19 @@ public class Lexer {
     @Override
     public String toString() {
         return tokenArrayList.toString();
+    }
+    private class EvaluationResult{
+        public String result;
+        public int newIndex;
+
+        public EvaluationResult(String  result, int newIndex) {
+            this.result = result;
+            this.newIndex = newIndex;
+        }
+        public EvaluationResult set(String result, int newIndex){
+            this.result = result;
+            this.newIndex = newIndex;
+            return this;
+        }
     }
 }
