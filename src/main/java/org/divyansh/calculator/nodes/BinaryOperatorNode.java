@@ -1,11 +1,12 @@
 package org.divyansh.calculator.nodes;
 
-import org.divyansh.calculator.BigDecimalMath;
+import ch.obermuhlner.math.big.BigDecimalMath;
+import org.divyansh.Main;
+import org.divyansh.calculator.BigDecimalMath2;
 import org.divyansh.calculator.tokens.OperatorToken;
 
 import java.math.BigDecimal;
-
-import static org.divyansh.calculator.BigDecimalMath.MATH_CONTEXT;
+import java.math.MathContext;
 
 public class BinaryOperatorNode implements Node{
 
@@ -32,6 +33,7 @@ public class BinaryOperatorNode implements Node{
 
 //        Log.info("EVALUATING: " + leftOperand+ op + rightOperand);
 
+        MathContext mc = Main.MATH_CONTEXT;
         if(leftOperand == null)
             throw new NullPointerException("LEFT OPERAND IS NULL FOR BINARY OPERATOR: " + op);
         if(rightOperand == null)
@@ -39,10 +41,10 @@ public class BinaryOperatorNode implements Node{
         return switch (op.getOperatorType()){
             case PLUS -> leftOperand.add(rightOperand);
             case MINUS -> leftOperand.subtract(rightOperand);
-            case DIVISION -> leftOperand.divide(rightOperand, BigDecimalMath.MATH_CONTEXT);
+            case DIVISION -> leftOperand.divide(rightOperand, mc);
             case MULTIPLICATION -> leftOperand.multiply(rightOperand);
             case REMAINDER -> leftOperand.remainder(rightOperand);
-            case EXPONENTIATION -> BigDecimalMath.pow(leftOperand,rightOperand);
+            case EXPONENTIATION -> BigDecimalMath.pow(leftOperand,rightOperand,mc);
             default -> throw new UnsupportedOperationException("UNKNOWN OPERATION: " + op);
         };
     }

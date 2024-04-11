@@ -71,7 +71,7 @@ class ParserTest {
 
     @Test
     void testTwoArgumentFunctions(){
-        assertEquals("1000",parser.evaluate("pow(10,3)"));
+        assertEquals("1000000000000000000000000000000000000000000000000000000000000",parser.evaluate("pow(10,60)"));
         assertEquals("0.30103",parser.evaluate("log(10,2)"));
         assertEquals("2",parser.evaluate("log(10,10^2)"));
         assertEquals("5",parser.evaluate("log(2,2*2^4)"));

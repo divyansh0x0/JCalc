@@ -1,6 +1,6 @@
 package org.divyansh.calculator.nodes;
 
-import org.divyansh.calculator.BigDecimalMath;
+import org.divyansh.calculator.BigDecimalMath2;
 import org.divyansh.calculator.tokens.OperatorToken;
 
 import java.math.BigDecimal;
@@ -20,7 +20,7 @@ public class UnaryOperatorNode implements Node {
             throw new NullPointerException("OPERAND IS NULL FOR UNARY OPERATOR: " + op);
         switch (op.getOperatorType()){
             case FACTORIAL -> {
-                return BigDecimalMath.getFactorial(operand);
+                return BigDecimalMath2.getFactorial(operand);
             }
             case MINUS -> {
                 return operand.negate();

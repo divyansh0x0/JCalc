@@ -16,7 +16,8 @@ applicationDefaultJvmArgs = ["-XX:+UseShenandoahGC","-XX:ShenandoahGCHeuristics=
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-
+    //BigDecimal math library
+    implementation 'ch.obermuhlner:big-math:2.3.2'
     /*Below libraries are used by Material Library*/
     //Timing framework
     implementation 'net.java.dev.timingframework:timingframework:1.0'

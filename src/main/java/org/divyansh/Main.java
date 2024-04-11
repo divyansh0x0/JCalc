@@ -8,7 +8,11 @@ import org.divyansh.components.IKeypadHandler;
 import org.divyansh.components.Keypad;
 import org.divyansh.components.SpecialKeyValues;
 
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 public class Main {
+    public static final MathContext MATH_CONTEXT = new MathContext(10, RoundingMode.HALF_EVEN);
     private MaterialPanel screen;
     private static final Size WINDOW_SIZE = new Size(400,500);
     private static IKeypadHandler KeypadHandler = new KeypadHandlerImpl();

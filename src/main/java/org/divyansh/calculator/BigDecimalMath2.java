@@ -1,5 +1,7 @@
 package org.divyansh.calculator;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
+import org.divyansh.Main;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -7,7 +9,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-public class BigDecimalMath {
+public class BigDecimalMath2 {
     //    public static final int DIVISION_SCALE = 16;
     private static final RoundingMode PREFERRED_ROUNDING_MODE = RoundingMode.HALF_EVEN;//3.141592653591
     private static final String PI_STR = "3.141592653589793238462643383279502884197169399375105820974944592307816406286" +
@@ -34,7 +36,7 @@ public class BigDecimalMath {
             "141441973568548161361157352552133475741849468438523323907394143334547762416862" +
             "518983569485562099219222184272550254256887671790494601653466804988627232791786";
     private static final int OUTPUT_PRECISION = 10;
-    public static final MathContext MATH_CONTEXT = new MathContext(30, PREFERRED_ROUNDING_MODE);
+    public static final MathContext MATH_CONTEXT = Main.MATH_CONTEXT;
     private static final BigDecimal MINUS_ONE = BigDecimal.ONE.negate();
     public static final BigDecimal PI = new BigDecimal(getPi(50));
 
@@ -194,13 +196,10 @@ public class BigDecimalMath {
         return PI_STR.substring(0, digits);
     }
 
-    public static BigDecimal ln(BigDecimal arg0, BigDecimal arg1) {
-        return BigDecimalMath.ln(arg1).divide(BigDecimalMath.ln(arg0), BigDecimalMath.MATH_CONTEXT).setScale(OUTPUT_PRECISION,PREFERRED_ROUNDING_MODE);
+    public static BigDecimal log(BigDecimal arg0, BigDecimal arg1) {
+        return BigDecimalMath.log(arg1,MATH_CONTEXT).divide(BigDecimalMath.log(arg0,MATH_CONTEXT), MATH_CONTEXT).setScale(OUTPUT_PRECISION,PREFERRED_ROUNDING_MODE);
     }
 
-    public static BigDecimal lnNewton(BigDecimal arg0, BigDecimal arg1) {
-        return BigDecimalMath.ln(arg1).divide(BigDecimalMath.ln(arg0), BigDecimalMath.MATH_CONTEXT).setScale(OUTPUT_PRECISION,PREFERRED_ROUNDING_MODE);
-    }
     public static BigDecimal lnNewton(BigDecimal x) {
         int ITER= 20;
         if (x.equals(BigDecimal.ONE)) {
