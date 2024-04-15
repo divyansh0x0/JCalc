@@ -37,10 +37,10 @@ public class Parser {
 
     private Node parseExpression(Lexer lexer) {
         Node leftTerm = parseTerm(lexer);
-        Token token = lexer.nextToken();
+        Token token = lexer.seekToken();
         if (leftTerm != null && token != null) {
             if (!token.equals(BracketToken.CLOSE)) {
-
+                token = lexer.nextToken();
                 switch (token.getTokenType()) {
                     case OPERATOR -> {
                         OperatorToken op = (OperatorToken) token;
@@ -63,6 +63,7 @@ public class Parser {
     }
 
     private Node parseTerm(Lexer lexer) {
+
 //        Log.info("[][][" + lexer.getCurrToken());
         //        Log.info(leftFactor);
 //        Log.warn("next token:" + nextToken);
@@ -130,7 +131,9 @@ public class Parser {
             }
             case BRACKET -> {
                 if (token.equals(BracketToken.OPEN)) {
-                    return parseExpression(lexer);
+                    Node exp = parseExpression(lexer);
+                    lexer.nextToken();
+                    return exp;
                 }
             }
             case OPERATOR -> {
@@ -160,6 +163,7 @@ public class Parser {
             Node exp = parseExpression(lexer);
             arr.add(exp);
         }
+        lexer.nextToken(); //skips the close token
         isParsingArguments = false;
         return arr.toArray(new Node[0]);
     }

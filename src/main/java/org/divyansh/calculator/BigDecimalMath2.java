@@ -165,11 +165,11 @@ public class BigDecimalMath2 {
     }
 
     public static BigDecimal ceil(BigDecimal arg0) {
-        return BigDecimal.ONE;
+        return arg0.setScale(0,RoundingMode.CEILING);
     }
 
     public static BigDecimal floor(BigDecimal arg0) {
-        return BigDecimal.ONE;
+        return arg0.setScale(0,RoundingMode.FLOOR);
     }
 
     public static BigDecimal pow(BigDecimal a, BigDecimal exp) {

@@ -19,7 +19,8 @@ class ParserTest {
         assertEquals("0", parser.evaluate("100 - 100"));
         assertEquals("6", parser.evaluate("3*2"));
         assertEquals("142", parser.evaluate("100 + 8 + 2  + 3^3 + 300/3 + 10/2 - 100"));
-
+        assertEquals("8", parser.evaluate("4^2/2"));
+        assertEquals("2", parser.evaluate("4^(1/2)"));
     }
     @Test
     void testUnaryOperators(){
@@ -30,9 +31,9 @@ class ParserTest {
     }
     @Test
     void testAllOperators(){
-        assertEquals("12", parser.evaluate("3!*(6/3*[3/3/{3/3}])"));
-        assertEquals("-12", parser.evaluate("-(3!*(6/3*[3/3/{3/3}]))"));
-        assertEquals("24", parser.evaluate("-(-4!/-2*(6/-3*[3/3/{3/3}]))"));
+        assertEquals("22", parser.evaluate("3!*(6/3*[3/3/{3/3}]) + 10"));
+        assertEquals("-112", parser.evaluate("-(3!*(6/3*[3/3/{3/3}])) - 100"));
+        assertEquals("48", parser.evaluate("-(-4!/-2*(6/-3*[3/3/{3/3}])) + 4!"));
         assertEquals("24", parser.evaluate("-(-4!/-2*(6/-3*[3/3/{3/3}]))"));
 
     }
@@ -76,13 +77,27 @@ class ParserTest {
         assertEquals("2",parser.evaluate("log(10,10^2)"));
         assertEquals("5",parser.evaluate("log(2,2*2^4)"));
         assertEquals("3.141593",parser.evaluate("log(PI,PI^PI)"));
-        assertEquals("100",parser.evaluate("log(10,pow(10,100))"));
     }
 
 
     @Test
     void testFunctionsAndOperators(){
-        assertEquals("1000",parser.evaluate("2*pow(10,3)+100"));
+        assertEquals("100",parser.evaluate("floor(100.2003)"));
+        assertEquals("101",parser.evaluate("ceil(100.2003)"));
+        assertEquals("101",parser.evaluate("floor(ceil(100.2003))"));
+        assertEquals("-101",parser.evaluate("floor(-100.45)"));
+        assertEquals("-100",parser.evaluate("ceil(-100.45)"));
+
+        assertEquals("2100",parser.evaluate("2*pow(10,3)+100"));
+        assertEquals("100",parser.evaluate("log(10,pow(10,100))"));
+        assertEquals("100",parser.evaluate("log(10,pow(10,100))"));
+        assertEquals("-1",parser.evaluate("sig(4*3/-3*4/4%3*100*3^2 - 10*log(10,100))"));
+        assertEquals("900",parser.evaluate("abs(4*3/-3*4/4%3*100*3^2)"));
+        assertEquals("920",parser.evaluate("abs(4*3/-3*4/4%3*100*3^2 - 10*log(10,100))"));
+        assertEquals("1",parser.evaluate("sig(cos(0) * (log(100,100)+100*100+abs(-100) * sig(2!)))"));
+        assertEquals("0",parser.evaluate("sig(tan(0) * (log(100,100)+100*100+abs(-100) * sig(2!)))"));
+        assertEquals("10101",parser.evaluate("(log(100,100)+100*100+abs(-100) * sig(2!))"));
+        assertEquals("105",parser.evaluate("2*log(10,abs(-100))+100 + floor(1.100)"));
 
     }
 }
