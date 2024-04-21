@@ -26,7 +26,7 @@ public class Parser {
         Lexer lexer = new Lexer(exp);
 //        Log.success("LEXER OUTPUT: " + lexer);
         Node root = parseExpression(lexer);
-        Log.info("AST:" + root);
+        Log.info("AST CREATED:\n"+root);
         return stripTrailingZeroes(root.evaluateValue().setScale(precision, RoundingMode.HALF_EVEN).toPlainString());
     }
 

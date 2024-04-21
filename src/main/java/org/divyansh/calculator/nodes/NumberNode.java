@@ -5,7 +5,7 @@ import org.divyansh.calculator.tokens.NumberToken;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class NumberNode implements Node{
+public class NumberNode extends Node {
     private NumberToken numberToken;
     public NumberNode(NumberToken numberToken){
         this.numberToken = numberToken;
@@ -23,6 +23,6 @@ public class NumberNode implements Node{
 
     @Override
     public String toString() {
-        return "<" + numberToken.getValue() + ">";
+        return REPEATER.repeat(level) + CONNECTOR +numberToken;
     }
 }

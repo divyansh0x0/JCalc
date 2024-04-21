@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Arrays;
 
-public class FunctionNode implements Node {
+public class FunctionNode extends Node {
 
     private final FunctionToken token;
     private final Node[] args;
@@ -80,6 +80,7 @@ public class FunctionNode implements Node {
 
     }
 
+
     private double throwError() {
         String s = switch (token.getFunctionType()) {
             case ABSOLUTE_VALUE, SIN, COS, TAN, SEC, COSEC, COT, SIGNUM, CEIL, FLOOR, ROUND -> "exactly 1";
@@ -100,7 +101,15 @@ public class FunctionNode implements Node {
 
     @Override
     public String toString() {
-        return token.getFunctionType() + Arrays.toString(args);
+        StringBuilder argStr = new StringBuilder();
+        for (int i = 0; i < args.length; i++) {
+            Node node = args[i];
+            node.level = this.level + 1;
+            argStr.append(node);
+            if(i < args.length-1)
+                argStr.append("\n");
+        }
+        return REPEATER.repeat(level) +CONNECTOR+ token.getFunctionType()+ "\n" + argStr;
 
     }
 }

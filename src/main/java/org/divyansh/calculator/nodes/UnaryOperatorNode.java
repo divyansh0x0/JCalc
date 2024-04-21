@@ -5,17 +5,17 @@ import org.divyansh.calculator.tokens.OperatorToken;
 
 import java.math.BigDecimal;
 
-public class UnaryOperatorNode implements Node {
-    private final Node val;
+public class UnaryOperatorNode extends Node {
+    private final Node node;
     private final OperatorToken op;
-    public UnaryOperatorNode(OperatorToken op, Node val) {
-        this.val = val;
+    public UnaryOperatorNode(OperatorToken op, Node node) {
+        this.node = node;
         this.op = op;
     }
 
     @Override
     public BigDecimal evaluateValue() {
-        BigDecimal operand = val.evaluateValue();
+        BigDecimal operand = node.evaluateValue();
         if(operand== null)
             throw new NullPointerException("OPERAND IS NULL FOR UNARY OPERATOR: " + op);
         switch (op.getOperatorType()){
@@ -36,6 +36,7 @@ public class UnaryOperatorNode implements Node {
 
     @Override
     public String toString() {
-        return "[(" + op + ") --> "+" ("+val+")]";
+        node.level = this.level + 1;
+        return REPEATER.repeat(level) +CONNECTOR + op.getOperatorType() + "["+op.getValue()+"]\n"+ node;
     }
 }

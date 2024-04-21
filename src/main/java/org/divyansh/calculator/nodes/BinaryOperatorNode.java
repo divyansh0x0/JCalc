@@ -8,7 +8,7 @@ import org.divyansh.calculator.tokens.OperatorToken;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class BinaryOperatorNode implements Node{
+public class BinaryOperatorNode extends Node{
 
 
     private final Node leftOperand;
@@ -21,10 +21,8 @@ public class BinaryOperatorNode implements Node{
         this.op = op;
     }
 
-    @Override
-    public String toString() {
-        return "[" + leftOperand + "<-- ("+op+") -->" + rightOperand + "]";
-    }
+
+
 
     @Override
     public BigDecimal evaluateValue() {
@@ -47,5 +45,16 @@ public class BinaryOperatorNode implements Node{
             case EXPONENTIATION -> BigDecimalMath.pow(leftOperand,rightOperand,mc);
             default -> throw new UnsupportedOperationException("UNKNOWN OPERATION: " + op);
         };
+    }
+
+
+    @Override
+    public String toString() {
+        leftOperand.level = this.level + 1;
+        rightOperand.level = this.level + 1;
+        return ("""
+                %s%s%s[%s]
+                %s
+                %s""").formatted(REPEATER.repeat(level),CONNECTOR,op.getOperatorType(),op.getValue(), leftOperand, rightOperand);
     }
 }
