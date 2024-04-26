@@ -1,35 +1,37 @@
 package org.divyansh.components;
 
 import material.component.MaterialIconButton;
+import org.divyansh.calculator.tokens.OperatorType;
 import org.kordamp.ikonli.Ikon;
 
-public class SpecialButton extends MaterialIconButton {
-    private SpecialKeyValues value;
+import java.util.Locale;
 
-    public SpecialButton(Ikon icon, SpecialKeyValues value) {
+public class OperatorButton extends MaterialIconButton {
+    private OperatorType value;
+
+    public OperatorButton(Ikon icon, OperatorType value) {
         super(icon,"",true);
         if (icon == null) {
             String text = switch (value){
-                case DOT -> ".";
-                case E -> "e";
-                default -> createName(value);
+                case REMAINDER ->  "mod";
+                default -> createName(value.toString().toLowerCase(Locale.ENGLISH));
             };
             setText(text);
         }
         this.setElevation(Settings.ELEVATION_LEVEL_2);
         this.setAlignmentX(0.5f);
         this.setIconSizeRatio(Settings.KEY_ICON_SIZE_RATIO);
-        this.setFontSize(30);
         this.setMinimumSize(Settings.KEY_SIZE);
 
         this.value = value;
     }
 
-    private String createName(SpecialKeyValues value) {
-        return value.toString().replaceAll("_", "").toLowerCase();
+
+    private String createName(String value) {
+        return value.replaceAll("_", "").toLowerCase();
     }
 
-    public SpecialKeyValues getValue() {
+    public OperatorType getValue() {
         return value;
     }
 }

@@ -1,5 +1,6 @@
 package org.divyansh.calculator.tokens;
 
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -7,7 +8,16 @@ public class FunctionToken implements Token {
     private final String name;
     private FunctionType type;
     private String base;
+    private static final HashMap<FunctionType, FunctionToken> cache = new HashMap<>();
 
+    public static FunctionToken create(FunctionType functionType){
+        FunctionToken token = cache.get(functionType);
+        if(token == null) {
+            token = new FunctionToken(functionType.name());
+            cache.put(functionType, token);
+        }
+        return token;
+    }
     public FunctionToken(String name) {
         this.name = name.toLowerCase(Locale.ENGLISH);
         if (name.startsWith("log")) {

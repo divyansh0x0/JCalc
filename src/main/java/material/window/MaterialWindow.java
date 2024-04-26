@@ -349,7 +349,6 @@ public class MaterialWindow extends JFrame {
             case EXCLUDE_CAPTION_BAR_WIDTH -> {
                 int GripWidth = getWidth() - currentCaptionBar.getWidth();
                 int GripHeight = GRIP.height;
-
                 return p.y >= y && p.y <= y + GripHeight && p.x >= x && p.x <= x + GripWidth;
             }
             case CUSTOM -> {
@@ -377,7 +376,6 @@ public class MaterialWindow extends JFrame {
         else
             throw new IllegalStateException("Already using default caption bar. Set it to false to use custom caption bar");
     }
-
     private void updateCaptionBarComponents() {
         if (isDefaultCaptionBarEnabled) {
             byte btnsAdded = 0;
@@ -394,11 +392,11 @@ public class MaterialWindow extends JFrame {
                 defaultCaptionBar.add(maxRestoreButton, "east, w " + CAPTION_BUTTON_WIDTH + "!");
                 btnsAdded++;
             }
-                defaultCaptionBar.add(minimizeButton, "east,w " + CAPTION_BUTTON_WIDTH + "!");
+            defaultCaptionBar.add(minimizeButton, "east,w " + CAPTION_BUTTON_WIDTH + "!");
             btnsAdded += 2;
             currentCaptionBar = defaultCaptionBar;
 
-            _root.add(defaultCaptionBar, "north, w "+CAPTION_BUTTON_WIDTH*btnsAdded+"!, align right, h " + CAPTION_BAR_HEIGHT + "!");
+            _root.add(defaultCaptionBar, "north, w " + CAPTION_BUTTON_WIDTH * btnsAdded + "!, align right, h " + CAPTION_BAR_HEIGHT + "!");
         } else {
             _root.remove(defaultCaptionBar);
         }

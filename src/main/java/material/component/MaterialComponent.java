@@ -1,6 +1,7 @@
 package material.component;
 
 import material.MaterialParameters;
+import material.Padding;
 import material.animation.AnimationLibrary;
 import material.fonts.MaterialFonts;
 import material.listeners.SelectionListener;
@@ -13,8 +14,7 @@ import material.utils.structures.LanguageCompatibleString;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.font.TextAttribute;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public abstract class MaterialComponent extends JComponent implements Serializab
 
     private Font font;
     private static Font defaultFont = new Font("Dialog", Font.PLAIN, 16);
-    private boolean isBold = true;
+    private boolean isBold = false;
     private boolean isItalic = false;
     private Dimension preferredSize;
     private boolean isSelected;
@@ -70,6 +70,9 @@ public abstract class MaterialComponent extends JComponent implements Serializab
 
     }
 
+    private boolean isFocused;
+    private Padding pad = new Padding(5);
+
     private boolean isAnimatingMouse() {
         return isAnimatingMouse;
     }
@@ -87,11 +90,25 @@ public abstract class MaterialComponent extends JComponent implements Serializab
     public MaterialComponent() throws HeadlessException {
         super();
         setOpaque(false);
+//        setFocusable(true);
         if (GraphicsEnvironment.isHeadless()) {
             throw new HeadlessException();
         }
         ThemeManager.getInstance().addThemeListener(this::updateTheme);
         updateTheme();
+//        addFocusListener(new FocusListener() {
+//            @Override
+//            public void focusGained(FocusEvent e) {
+//                isFocused = true;
+//                repaint();
+//            }
+//
+//            @Override
+//            public void focusLost(FocusEvent e) {
+//                isFocused = false;
+//                repaint();
+//            }
+//        });
     }
 
     @Override
@@ -109,6 +126,11 @@ public abstract class MaterialComponent extends JComponent implements Serializab
             g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
         }
         super.paint(g2d);
+        if(isFocused) {
+            g2d.setColor(ThemeColors.getAccent());
+            g2d.drawRoundRect(pad.getLeft(), pad.getTop(), getWidth() - pad.getHorizontal(), getHeight() - pad.getVertical(), 5, 5);
+        }
+
     }
 
     public void animateFG(Color to) {
@@ -299,5 +321,9 @@ public abstract class MaterialComponent extends JComponent implements Serializab
 
     public void setAllowMouseAnimation(boolean allowMouseAnimation) {
         this.allowMouseAnimation = allowMouseAnimation;
+    }
+
+    public boolean isFocused() {
+        return isFocused;
     }
 }

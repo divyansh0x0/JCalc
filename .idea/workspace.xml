@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Functions now work" />
+    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Now calling toString on root node prints the AST in a hierarchical manner">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/CalculatorPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/FunctionButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/OperatorButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/component/MaterialComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialIconButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/component/MaterialIconButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/MaterialFonts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/fonts/MaterialFonts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/NumberToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/IKeypadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/IKeypadHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Keypad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/NumericButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/NumericButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialKeyValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialKeyValues.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +50,23 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ComplexCalculator" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ComplexCalculator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ComplexCalculator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ComplexCalculator" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -98,6 +138,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.divyansh.components" />
       <recent name="org.divyansh.calculator.tokens" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -114,7 +155,29 @@
       <recent name="org.divyansh.calculator" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ParserTest">
+  <component name="RunManager" selected="Gradle.ComplexCalculator [run]">
+    <configuration name="ComplexCalculator [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="ParserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -129,30 +192,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;org.divyansh.calculator.ParserTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="ParserTest.testBinaryOperators" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.divyansh.calculator.ParserTest.testBinaryOperators&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -237,11 +276,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ParserTest" />
+        <item itemvalue="Gradle.ComplexCalculator [run]" />
         <item itemvalue="Gradle.ParserTest.testFunctionsAndOperators" />
+        <item itemvalue="Gradle.ParserTest" />
         <item itemvalue="Gradle.ParserTest.testUnaryOperators" />
         <item itemvalue="Gradle.ParserTest.testBrackets" />
-        <item itemvalue="Gradle.ParserTest.testBinaryOperators" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713194236161</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Now calling toString on root node prints the AST in a hierarchical manner">
+      <option name="closed" value="true" />
+      <created>1713714056609</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713714056610</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -320,6 +367,7 @@
     <MESSAGE value="I can't figure out how to read arguments to functions properly" />
     <MESSAGE value="Well i switched to external library to find power of BigDecimal" />
     <MESSAGE value="Functions now work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Functions now work" />
+    <MESSAGE value="Now calling toString on root node prints the AST in a hierarchical manner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now calling toString on root node prints the AST in a hierarchical manner" />
   </component>
 </project>

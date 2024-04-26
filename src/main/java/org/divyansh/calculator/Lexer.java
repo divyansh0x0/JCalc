@@ -128,7 +128,7 @@ public class Lexer {
     }
 
     private boolean isOperator(char c) {
-        return !OperatorType.getType(c).equals(OperatorType.UNKNOWN);
+        return !OperatorType.getType(String.valueOf(c)).equals(OperatorType.UNKNOWN);
     }
 
 
