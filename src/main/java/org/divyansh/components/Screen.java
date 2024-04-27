@@ -8,6 +8,7 @@ import material.theme.enums.Elevation;
 import material.theme.models.ElevationModel;
 import material.tools.ColorUtils;
 import material.utils.Log;
+import org.divyansh.Main;
 import org.divyansh.calculator.tokens.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -15,13 +16,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Screen extends MaterialComponent implements ElevationModel {
+    private  IKeypadHandler KeypadHandler = new KeypadHandlerImpl();
     private static final float BLINKING_RATE = 2;
-    private LinkedList<Token> tokenList = new LinkedList<>();
     private boolean makeCursorBright;
+    private StringBuilder mathStringBuilder = new StringBuilder();
     private MaterialFixedTimer blinkerTimer = new MaterialFixedTimer(1000/BLINKING_RATE) {
         @Override
         public void tick(float deltaMillis) {
@@ -52,24 +52,60 @@ public class Screen extends MaterialComponent implements ElevationModel {
 
             }
         });
+    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(getBackground());
+        g.fillRoundRect(0,0,getWidth(),getHeight(),CornerRadius,CornerRadius);
+        final FontMetrics fm = g.getFontMetrics();
+        int xMin = pad.getLeft();
+        int yMin = pad.getTop();
+        int widthAvail = getWidth() - pad.getHorizontal();
+        int heightAvail = getHeight() - pad.getVertical();
+        g.setColor(borderColor);
+        if(isUnderUse)
+            g.drawRoundRect(xMin,yMin,widthAvail,heightAvail,CornerRadius,CornerRadius);
+        Graphics2D g2d = (Graphics2D) g;
+        drawText(g2d);
+        g2d.setColor(ThemeColors.getTextPrimary());
+        int tX = widthAvail;
+        FontMetrics ft = g2d.getFontMetrics();
+        int tY = (int) (((this.getHeight() - ft.getAscent()) * getAlignmentY()) + ft.getAscent()); //Text y coordinate
+        String str = mathStringBuilder.toString();
+        tX -= fm.stringWidth(str);
+        g2d.drawString(str,tX,tY);
 
 
+        //caret
+        if(makeCursorBright){
+            int caretHeight = getHeight() / 3;
+            Log.info(caretPosition + "||" + mathStringBuilder.length());
+            int y = (getHeight() - caretHeight)/2;
+            int x = widthAvail - fm.stringWidth(mathStringBuilder.substring(getCaretPosition()));
+            g2d.setColor(ThemeColors.getAccent());
+            g2d.fillRect(x,y,3, caretHeight);
+        }
+    }
+    private void decrementCaretPos() {
+        if(caretPosition > 0)
+            caretPosition--;
     }
 
-    public  void addFunction(FunctionType value) {
-        tokenList.add(caretPosition, FunctionToken.create(value));
-        SwingUtilities.invokeLater(this::repaint);
+    private void incrementCaretPosition() {
+        if(caretPosition < mathStringBuilder.length())
+            caretPosition++;
     }
 
-    public void addOperator(OperatorType value) {
-        tokenList.add(caretPosition, OperatorToken.create(value));
-
-        SwingUtilities.invokeLater(this::repaint);
+    private void setCaretPosition(int index){
+        if(index < mathStringBuilder.length() && index > 0)
+            caretPosition = index;
+    }
+    private int getCaretPosition() {
+        return caretPosition;
     }
 
-    public void addDigit(int value) {
 
-    }
 
     @Override
     protected void animateMouseEnter() {
@@ -93,40 +129,7 @@ public class Screen extends MaterialComponent implements ElevationModel {
         animateBG(bg);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(getBackground());
-        g.fillRoundRect(0,0,getWidth(),getHeight(),CornerRadius,CornerRadius);
-        int xMin = pad.getLeft();
-        int yMin = pad.getTop();
-        int widthAvail = getWidth() - pad.getHorizontal();
-        int heightAvail = getHeight() - pad.getVertical();
-        g.setColor(borderColor);
-        if(isUnderUse)
-            g.drawRoundRect(xMin,yMin,widthAvail,heightAvail,CornerRadius,CornerRadius);
-        Graphics2D g2d = (Graphics2D) g;
-        drawText(g2d);
-        g2d.setColor(ThemeColors.getTextPrimary());
-        int tX = widthAvail;
-        FontMetrics ft = g2d.getFontMetrics();
-        for(Token token : tokenList){
-            int tY = (int) (((this.getHeight() - ft.getAscent()) * getAlignmentY()) + ft.getAscent()); //Text y coordinate
-            Log.info(token);
-            String str = token.getValue();
-            tX -= g2d.getFontMetrics().stringWidth(str);
-            g2d.drawString(str,tX,tY);
-        }
 
-
-        //caret
-        if(makeCursorBright){
-            int caretHeight = getHeight() / 3;
-            int y = (int) ((getHeight() - caretHeight)/2);
-            g2d.setColor(ThemeColors.getAccent());
-            g2d.fillRect(caretPosition,y,3, caretHeight);
-        }
-    }
 
     private void drawText(Graphics2D g2d) {
 
@@ -147,4 +150,57 @@ public class Screen extends MaterialComponent implements ElevationModel {
         updateTheme();
         return this;
     }
+
+    public IKeypadHandler getKeyHandler() {
+        return KeypadHandler;
+    }
+
+    private class KeypadHandlerImpl implements IKeypadHandler{
+
+        @Override
+        public void handleNumericKeyPress(int value) {
+            mathStringBuilder.insert(getCaretPosition(), value);
+            incrementCaretPosition();
+            SwingUtilities.invokeLater(Screen.this::repaint);
+        }
+
+        @Override
+        public void handleOperatorKeyPress(OperatorType value) {
+            mathStringBuilder.insert(getCaretPosition(), OperatorToken.create(value));
+
+            incrementCaretPosition();
+            SwingUtilities.invokeLater(Screen.this::repaint);
+        }
+
+        @Override
+        public void handleFunctionKeyPress(FunctionType value) {
+            mathStringBuilder.insert(getCaretPosition(), FunctionToken.create(value));
+            incrementCaretPosition();
+            SwingUtilities.invokeLater(Screen.this::repaint);
+        }
+
+        @Override
+        public void handleSpecialKeyPress(SpecialButton btn) {
+            switch (btn.getValue()){
+                case BACKSPACE -> {
+                    deleteChar(getCaretPosition());
+                }
+                default -> {
+                    mathStringBuilder.insert(getCaretPosition(), btn.getText());
+                    incrementCaretPosition();
+                    SwingUtilities.invokeLater(Screen.this::repaint);
+                }
+            }
+
+        }
+    }
+
+    private void deleteChar(int index) {
+        if(index > 0 && index < mathStringBuilder.length()) {
+            mathStringBuilder.deleteCharAt(index - 1);
+            decrementCaretPos();
+            SwingUtilities.invokeLater(this::repaint);
+        }
+    }
+
 }

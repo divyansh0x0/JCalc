@@ -36,6 +36,12 @@ public class CalculatorPanel extends MaterialPanel {
         panel1.add(factory.create(SpecialKeyValues.BACKSPACE), KEY_CONTRAINT);
         panel1.add(factory.create(SpecialKeyValues.PI), KEY_CONTRAINT);
         panel1.add(factory.create(SpecialKeyValues.E), KEY_CONTRAINT);
+        panel1.add(factory.create(SpecialKeyValues.BRACKETOPEN), KEY_CONTRAINT);
+        panel1.add(factory.create(SpecialKeyValues.BRACKETCLOSE), KEY_CONTRAINT);
+        panel1.add(factory.create(SpecialKeyValues.SQUARE_BRACKETOPEN), KEY_CONTRAINT);
+        panel1.add(factory.create(SpecialKeyValues.SQUARE_BRACKETCLOSE), KEY_CONTRAINT);
+        panel1.add(factory.create(SpecialKeyValues.SQUARE_CURLYBRACKETOPEN), KEY_CONTRAINT);
+        panel1.add(factory.create(SpecialKeyValues.SQUARE_CURLYBRACKETCLOSE), KEY_CONTRAINT);
 
         subPanel1.add(factory.create(1), KEY_CONTRAINT);
         subPanel1.add(factory.create(2), KEY_CONTRAINT);
@@ -120,7 +126,7 @@ public class CalculatorPanel extends MaterialPanel {
             Ikon icon = getIcon(val);
             SpecialButton button = new SpecialButton(icon, val);
             button.addLeftClickListener(e -> {
-                keypadHandler.handleSpecialKeyPress(button.getValue());
+                keypadHandler.handleSpecialKeyPress(button);
             });
             return button;
         }

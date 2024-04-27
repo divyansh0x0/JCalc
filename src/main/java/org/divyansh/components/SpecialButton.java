@@ -12,6 +12,13 @@ public class SpecialButton extends MaterialIconButton {
             String text = switch (value){
                 case DOT -> ".";
                 case E -> "e";
+                case BRACKETOPEN -> "(";
+                case SQUARE_BRACKETOPEN -> "[";
+                case SQUARE_CURLYBRACKETOPEN -> "{";
+
+                case BRACKETCLOSE -> ")";
+                case SQUARE_BRACKETCLOSE -> "]";
+                case SQUARE_CURLYBRACKETCLOSE-> "}";
                 default -> createName(value);
             };
             setText(text);

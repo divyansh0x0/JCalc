@@ -9,5 +9,5 @@ public interface IKeypadHandler {
 
     void handleFunctionKeyPress(FunctionType value);
 
-    void handleSpecialKeyPress(SpecialKeyValues value);
+    void handleSpecialKeyPress(SpecialButton value);
 }

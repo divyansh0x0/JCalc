@@ -4,27 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Now calling toString on root node prints the AST in a hierarchical manner">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/CalculatorPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/FunctionButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/OperatorButton.java" afterDir="false" />
+    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Built some UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/LatexGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/component/MaterialComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialIconButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/component/MaterialIconButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/MaterialFonts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/fonts/MaterialFonts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/NumberToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/OperatorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/CalculatorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/CalculatorPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/IKeypadHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/IKeypadHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Keypad.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/NumericButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/NumericButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialKeyValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialKeyValues.java" afterDir="false" />
     </list>
@@ -357,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713714056610</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Built some UI">
+      <option name="closed" value="true" />
+      <created>1714137008239</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714137008239</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -368,6 +363,7 @@
     <MESSAGE value="Well i switched to external library to find power of BigDecimal" />
     <MESSAGE value="Functions now work" />
     <MESSAGE value="Now calling toString on root node prints the AST in a hierarchical manner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now calling toString on root node prints the AST in a hierarchical manner" />
+    <MESSAGE value="Built some UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Built some UI" />
   </component>
 </project>
