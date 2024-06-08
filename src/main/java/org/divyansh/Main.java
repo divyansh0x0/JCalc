@@ -17,7 +17,7 @@ public class Main {
     public static final MathContext MATH_CONTEXT = new MathContext(10, RoundingMode.HALF_EVEN);
     private static final Size WINDOW_SIZE = new Size(400,500);
     private static final Screen screen = new Screen(Settings.ELEVATION_LEVEL_0);
-    public static final CalculatorPanel COMP = new CalculatorPanel(screen.getKeyHandler());
+    public static final CalculatorPanel COMP = new CalculatorPanel(screen.requestKeyListener());
     public static void main(String[] args) {
 
 //        boolean isFontSet = MaterialFonts.getInstance().setDefaultFont("NotoSansMath.ttf");

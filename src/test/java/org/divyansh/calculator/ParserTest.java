@@ -55,6 +55,7 @@ class ParserTest {
         assertEquals("0", parser.evaluate("3%3/3"));
         assertEquals("1", parser.evaluate("3/3%3"));
         assertEquals("-900", parser.evaluate("4*3/-3*4/4%3*100*3^2"));
+        assertEquals("6", parser.evaluate("((3+1)*2)-2"));
     }
 
     @Test
@@ -99,5 +100,24 @@ class ParserTest {
         assertEquals("10101",parser.evaluate("(log(100,100)+100*100+abs(-100) * sig(2!))"));
         assertEquals("105",parser.evaluate("2*log(10,abs(-100))+100 + floor(1.100)"));
 
+    }
+    @Test
+    void testSingleArgumentFunctions(){
+        assertEquals("100",parser.evaluate("floor100.20003"));
+        assertEquals("1",parser.evaluate("ceil100.20003/101"));
+        assertEquals("101",parser.evaluate("floor(ceil100.20003)"));
+        assertEquals("-100",parser.evaluate("ceil-100.45"));
+        assertEquals("20",parser.evaluate("sig100*20*sig139123.0"));
+        assertThrows(RuntimeException.class,()->parser.evaluate("floorfloor10.3"));
+    }
+    @Test
+    void testImplicitMultiplication(){
+        assertEquals("1000",parser.evaluate("10(10(10))"));
+        assertEquals("200",parser.evaluate("100log(10,10(10))"));
+        assertEquals("0.841471",parser.evaluate("sin(cos0)"));
+        assertEquals("10",parser.evaluate("10log(10,10)"));
+        assertEquals("40",parser.evaluate("10pow(2,2)"));
+        assertEquals("100",parser.evaluate("10log(10,10^10)"));
+        assertEquals("40",parser.evaluate("10pow(2,2)log(10,10)"));
     }
 }

@@ -1,6 +1,5 @@
 package org.divyansh.calculator;
 
-import material.utils.Log;
 import org.divyansh.calculator.tokens.*;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -11,18 +10,18 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class Lexer {
-    private final ArrayList<Token> tokenArrayList = new ArrayList<>();
+    protected final ArrayList<Token> tokenArrayList = new ArrayList<>();
     private final Stack<Character> bracketsStack = new Stack<>();
     private int nextIndex = 0;
     private final StringBuffer SB = new StringBuffer();
-    private ArrayList<String> tempArgsArr =new ArrayList<>();
 
     public Lexer(@NotNull String exp) {
         char[] charArr = exp.toCharArray();
-        parseCharArray(charArr);
+        tokenArrayList.addAll(parseCharArray(charArr));
     }
 
-    private void parseCharArray(char @NotNull [] arr) {
+    protected ArrayList<Token> parseCharArray(char @NotNull [] arr) {
+        ArrayList<Token> arrayList = new ArrayList();
         Token token;
         EvaluationResult evalResult;
         for (int i = 0; i < arr.length; i++) {
@@ -58,10 +57,11 @@ public class Lexer {
             else {
                 throw new RuntimeException("Invalid character: " + c+ " at " + i + " in " + Arrays.toString(arr));
             }
-            tokenArrayList.add(token);
+            arrayList.add(token);
         }
         if(!bracketsStack.isEmpty())
             throw new RuntimeException(Arrays.toString(arr) + " does not have appropriate closing brackets ");
+        return arrayList;
     }
     @Contract("_, _ -> new")
     private @NotNull EvaluationResult evaluateNumber(char @NotNull [] arr, int i) {
@@ -114,7 +114,7 @@ public class Lexer {
     }
 
 
-    public Token nextToken() {
+    public Token getAndMoveToNextToken() {
         Token token = null;
         if (nextIndex < tokenArrayList.size()) {
             token = tokenArrayList.get(nextIndex);
@@ -123,7 +123,7 @@ public class Lexer {
         return token;
     }
 
-    public Token seekToken() {
+    public Token getNextToken() {
         return nextIndex < tokenArrayList.size() ? tokenArrayList.get(nextIndex) : null;
     }
 
@@ -149,5 +149,9 @@ public class Lexer {
             this.newIndex = newIndex;
             return this;
         }
+    }
+
+    public ArrayList<Token> getTokenArray(){
+        return tokenArrayList;
     }
 }
