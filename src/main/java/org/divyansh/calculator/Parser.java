@@ -31,14 +31,15 @@ public class Parser {
 
         // Log the created AST
         Log.info("AST CREATED:\n" + root);
-
-        //
-
+        if(root == null)
+            return "";
         // Evaluate the value of the root node and strip trailing zeroes and return it
         return stripTrailingZeroes(root.evaluateValue().setScale(precision, RoundingMode.HALF_EVEN).toPlainString());
     }
 
     public Node getAst(Lexer lexer){
+        if(lexer.isEmpty())
+            return null;
         return parseExpression(lexer);
     }
     /**
@@ -185,7 +186,7 @@ public class Parser {
         // Get the next token
         Token token = lexer.getAndMoveToNextToken();
         if (token == null)
-            throw new RuntimeException("NO TOKENS FOUND IN " + lexer + " AT " + lexer.getCurrIndex());
+            throw new RuntimeException("NO TOKENS FOUND WHILE PARSING FACTOR IN " + lexer + " AT " + lexer.getCurrIndex());
         // Check the token type
         switch (token.getTokenType()) {
             case NUMBER -> {

@@ -7,7 +7,6 @@ import org.divyansh.calculator.tokens.FunctionToken;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.util.Arrays;
 
 public class FunctionNode extends Node {
 
@@ -81,7 +80,7 @@ public class FunctionNode extends Node {
     }
 
 
-    private double throwError() {
+    private void throwError() {
         String s = switch (token.getFunctionType()) {
             case ABSOLUTE_VALUE, SIN, COS, TAN, SEC, COSEC, COT, SIGNUM, CEIL, FLOOR, ROUND -> "exactly 1";
             case LOG, POWER -> "exactly 2";

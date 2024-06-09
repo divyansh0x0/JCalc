@@ -17,11 +17,12 @@ public class Lexer {
 
     public Lexer(@NotNull String exp) {
         char[] charArr = exp.toCharArray();
-        tokenArrayList.addAll(parseCharArray(charArr));
+        parseCharArray(charArr);
     }
 
-    protected ArrayList<Token> parseCharArray(char @NotNull [] arr) {
-        ArrayList<Token> arrayList = new ArrayList();
+    protected void parseCharArray(char @NotNull [] arr) {
+        tokenArrayList.clear();
+        bracketsStack.clear();
         Token token;
         EvaluationResult evalResult;
         for (int i = 0; i < arr.length; i++) {
@@ -57,11 +58,10 @@ public class Lexer {
             else {
                 throw new RuntimeException("Invalid character: " + c+ " at " + i + " in " + Arrays.toString(arr));
             }
-            arrayList.add(token);
+            tokenArrayList.add(token);
         }
         if(!bracketsStack.isEmpty())
             throw new RuntimeException(Arrays.toString(arr) + " does not have appropriate closing brackets ");
-        return arrayList;
     }
     @Contract("_, _ -> new")
     private @NotNull EvaluationResult evaluateNumber(char @NotNull [] arr, int i) {
@@ -75,7 +75,7 @@ public class Lexer {
         }
         String num = SB.toString();
         SB.delete(0, SB.length());
-        return new EvaluationResult(num,i - 1);
+        return new EvaluationResult(num, i - 1);
     }
     private @Nullable EvaluationResult parseFunction(char @NotNull [] arr, int i) {
         for (; i  < arr.length ;i++) {
@@ -94,7 +94,7 @@ public class Lexer {
         }
         String name = SB.toString();
         SB.delete(0,SB.length());
-        return name.isEmpty() ? null : new EvaluationResult(name,i-1);
+        return name.isEmpty() ? null : new EvaluationResult(name, i - 1);
     }
 
     private boolean isValidClosingBracket(char bracketClose) {
@@ -136,7 +136,12 @@ public class Lexer {
     public String toString() {
         return tokenArrayList.toString();
     }
-    private class EvaluationResult{
+
+    public boolean isEmpty() {
+        return tokenArrayList.isEmpty();
+    }
+
+    private static class EvaluationResult{
         public String result;
         public int newIndex;
 

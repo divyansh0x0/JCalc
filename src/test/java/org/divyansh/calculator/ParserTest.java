@@ -17,7 +17,7 @@ class ParserTest {
     @Test
     void testBinaryOperators(){
         assertEquals("0", parser.evaluate("100 - 100"));
-        assertEquals("6", parser.evaluate("3*2"));
+        assertEquals("2", parser.evaluate("2*3/3"));
         assertEquals("142", parser.evaluate("100 + 8 + 2  + 3^3 + 300/3 + 10/2 - 100"));
         assertEquals("8", parser.evaluate("4^2/2"));
         assertEquals("2", parser.evaluate("4^(1/2)"));

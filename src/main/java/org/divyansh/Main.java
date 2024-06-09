@@ -5,6 +5,7 @@ import material.containers.MaterialPanel;
 import material.utils.Log;
 import material.window.MaterialWindow;
 import material.window.MaterialWindowGrip;
+import org.divyansh.calculator.Parser;
 import org.divyansh.calculator.tokens.FunctionType;
 import org.divyansh.calculator.tokens.NumberToken;
 import org.divyansh.calculator.tokens.OperatorType;
@@ -29,6 +30,7 @@ public class Main {
 
         materialWindow.pack();
         materialWindow.setVisible(true);
+
     }
 
 

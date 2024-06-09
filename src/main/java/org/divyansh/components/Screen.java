@@ -8,6 +8,9 @@ import material.theme.enums.Elevation;
 import material.theme.models.ElevationModel;
 import material.tools.ColorUtils;
 import material.utils.Log;
+import org.divyansh.calculator.DynamicLexer;
+import org.divyansh.calculator.Lexer;
+import org.divyansh.calculator.Parser;
 import org.divyansh.calculator.tokens.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -17,7 +20,7 @@ import java.awt.event.*;
 
 public class Screen extends MaterialComponent implements ElevationModel {
     private static final float BLINKING_RATE = 2;
-    private static final String OPERATORS_STR = "+-/*^%";
+    private static final String OPERATORS_STR = "()[]{},.+-/*^%";
     private int CARET_HEIGHT = 0;
     private int CARET_Y = 0;
     private int CARET_X = 0;
@@ -33,10 +36,13 @@ public class Screen extends MaterialComponent implements ElevationModel {
     private Color borderColor;
     private Elevation elevation = Elevation._1;
     private boolean isUnderUse = false;
+    private DynamicLexer lexer;
+    private static final Parser parser = new Parser(Settings.OUTPUT_PRECISION);
     private IKeypadHandler KeyPadHandler = new KeyPadHandlerImpl();
 
     public Screen(Elevation elevation) throws HeadlessException {
         super();
+        lexer = new DynamicLexer();
         blinkerTimer.start();
         setElevation(elevation);
         setFontSize(Settings.KEY_FONT_SIZE * 2);
@@ -52,7 +58,15 @@ public class Screen extends MaterialComponent implements ElevationModel {
                 }
             }
         });
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                SwingUtilities.invokeLater(()->{
+                    requestFullRepaint();
 
+                });
+            }
+        });
         addKeyListener(new ScreenKeyAdapter());
     }
 
@@ -102,8 +116,11 @@ public class Screen extends MaterialComponent implements ElevationModel {
             drawText(g,widthAvail,fm);
             redrawCaret(g, fm, widthAvail);
             fullRepaintRequired = false;
-
-
+//            try {
+//                Log.info(parser.getAst(lexer));
+//            }catch (Exception e){
+//                Log.error("Syntax error while parsing: " +e.getMessage());
+//            }
         } else {
             drawCaret(g);
         }
@@ -120,7 +137,6 @@ public class Screen extends MaterialComponent implements ElevationModel {
     }
     private void drawCaret(Graphics g) {
         if (showCaret) {
-            Log.info(CARET_X + "|" + CARET_Y + "|" + CARET_WIDTH + "|" + CARET_HEIGHT);
             g.setColor(ThemeColors.getAccent());
             g.fillRect(CARET_X, CARET_Y, CARET_WIDTH, CARET_HEIGHT);
         }
@@ -130,7 +146,6 @@ public class Screen extends MaterialComponent implements ElevationModel {
         //caret
         if (showCaret) {
             CARET_HEIGHT = getHeight() / 3;
-            Log.info(caretPosition + "||" + text.length());
             CARET_Y = (getHeight() - CARET_HEIGHT) / 2;
             CARET_X = widthAvail - fm.stringWidth(text.substring(getCaretPosition()));
             g2d.setColor(ThemeColors.getAccent());
@@ -210,8 +225,8 @@ public class Screen extends MaterialComponent implements ElevationModel {
         int offset = getCaretPosition();
         text.insert(offset, character);
         incrementCaretPosition();
-    }
 
+    }
     @Override
     protected void animateMouseEnter() {
 
@@ -243,7 +258,7 @@ public class Screen extends MaterialComponent implements ElevationModel {
         return this.KeyPadHandler;
     }
 
-    private class KeyPadHandlerImpl implements IKeypadHandler {
+    private static class KeyPadHandlerImpl implements IKeypadHandler {
 
         @Override
         public void handleNumericKeyPress(int value) {
@@ -283,6 +298,13 @@ public class Screen extends MaterialComponent implements ElevationModel {
                 decrementCaretPos();
             } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 incrementCaretPosition();
+            }
+            else if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                try {
+                    Log.info(parser.getAst(new Lexer(text.toString())));
+                }catch (Exception err){
+                    Log.error("Syntax error:" + err);
+                }
             }
         }
 

@@ -12,4 +12,5 @@ public class Settings {
     public static final Elevation ELEVATION_LEVEL_1 = Elevation._2;
 
     public static final Elevation ELEVATION_LEVEL_0 = Elevation._1;
+    public static final int OUTPUT_PRECISION = 10;
 }
