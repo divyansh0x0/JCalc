@@ -80,6 +80,7 @@ public class Lexer {
     private @Nullable EvaluationResult parseFunction(char @NotNull [] arr, int i) {
         for (; i  < arr.length ;i++) {
             char c = arr[i];
+            // read function name
             if(Character.isAlphabetic(c)){
                 SB.append(c);
             }
@@ -93,7 +94,7 @@ public class Lexer {
             }
         }
         String name = SB.toString();
-        SB.delete(0,SB.length());
+        SB.delete(0,SB.length()); // clear the string builder for next use
         return name.isEmpty() ? null : new EvaluationResult(name, i - 1);
     }
 

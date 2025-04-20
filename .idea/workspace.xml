@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Implicit multiplication added">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/DynamicLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/DynamicLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/BinaryOperatorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/BinaryOperatorNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/FunctionNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/FunctionNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +76,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "divyansh0x0"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/divyansh0x0/JCalc.git",
+    "accountId": "04536136-8111-4c21-a56c-ef6e07a03edb"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -92,40 +98,41 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Gradle.ComplexCalculator [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ComplexCalculator [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ComplexCalculator [testClasses].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ComplexCalculator [test].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.evaluate.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.testBinaryOperators.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.testBrackets.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.testFunctionsAndOperators.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.testImplicitMultiplication.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ParserTest.testUnaryOperators.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last.edited.regexp&quot;: &quot;                      &quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Projects/ComplexCalculator/src/main/java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.ComplexCalculator [:Main.main()].executor": "Run",
+    "Gradle.ComplexCalculator [run].executor": "Run",
+    "Gradle.ComplexCalculator [testClasses].executor": "Run",
+    "Gradle.ComplexCalculator [test].executor": "Run",
+    "Gradle.ParserTest.evaluate.executor": "Run",
+    "Gradle.ParserTest.executor": "Run",
+    "Gradle.ParserTest.testBinaryOperators.executor": "Run",
+    "Gradle.ParserTest.testBrackets.executor": "Run",
+    "Gradle.ParserTest.testFunctionsAndOperators.executor": "Run",
+    "Gradle.ParserTest.testImplicitMultiplication.executor": "Run",
+    "Gradle.ParserTest.testUnaryOperators.executor": "Run",
+    "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last.edited.regexp": "                      ",
+    "last_opened_file_path": "E:/Projects/ComplexCalculator/src/main/java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.divyansh.components" />
@@ -273,14 +280,6 @@
         <item itemvalue="Gradle.ParserTest.testUnaryOperators" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-18.0.2-corretto-18.0.2-249ae16d76d6-e0389a16" />
-        <option value="jdk-21.0.1-openjdk-21.0.1-249ae16d76d6-a618e4d4" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
