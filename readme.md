@@ -28,8 +28,20 @@ A fully functional calculator written in java that can parse any mathematical ex
 The calculator can parse all valid mathematical expressions and supports:
 * Implicit multilication  `2log(2,8) is same as 2*log(2,8)`
 * Parenthesis supported are `( [ {} ] )` (The ordering does not matter)
----
-A graphical user interface is under development for this calculator
 
+### [Console example](https://github.com/divyansh0x0/JCalc/blob/main/src/main/java/org/divyansh/examples/ConsoleCalculator.java):
 
+```
+     | |/ ___|  / \  | |   / ___|
+  _  | | |     / _ \ | |  | |    
+ | |_| | |___ / ___ \| |__| |___ 
+  \___/ \____/_/   \_\_____\____|
+
+Welcome to JCalc!
+Write an expression and press enter to compute it OR write exit to quit
+> sin(PI/6) + 2^(3*sqrt(144)) + 10*(2+3) + 4!
+Solving sin(PI/6) + 2^(3*sqrt(144)) + 10*(2+3) + 4!
+Result: 68719476810.5
+> 
+```
 
