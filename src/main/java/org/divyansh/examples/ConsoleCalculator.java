@@ -47,7 +47,7 @@ public class ConsoleCalculator {
         System.out.println("Write an expression and press enter to compute it OR write exit to quit");
         while (true) {
             System.out.print(BOLD + CYAN + "> " + RESET);
-            String input = scanner.next();
+            String input = scanner.nextLine();
 
             if (input.equalsIgnoreCase("exit")) {
                 System.out.println(RED + "Exiting JCalc. Goodbye!" + RESET);
@@ -58,6 +58,7 @@ public class ConsoleCalculator {
                 if(input.isBlank()){
                     System.out.println("Write a math expression!!");
                 }
+                System.out.println("Solving " + input);
                 String result = parser.evaluate(input);
                 System.out.println(GREEN + "Result: " + BOLD + result + RESET);
             } catch (RuntimeException e) {

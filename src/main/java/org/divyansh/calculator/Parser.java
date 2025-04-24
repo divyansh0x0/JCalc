@@ -127,7 +127,7 @@ public class Parser {
 
                 // Check the operator type
                 switch (op.getOperatorType()) {
-                    case MULTIPLICATION, DIVISION, REMAINDER -> {
+                    case MULTIPLICATION, DIVISION, REMAINDER, EXPONENTIATION -> {
                         // Create a binary operator node with the expression and the parsed factor
                         term = new BinaryOperatorNode(term, op, parseFactor(lexer));
                     }

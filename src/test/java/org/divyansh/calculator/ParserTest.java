@@ -120,4 +120,37 @@ class ParserTest {
         assertEquals("100",parser.evaluate("10log(10,10^10)"));
         assertEquals("40",parser.evaluate("10pow(2,2)log(10,10)"));
     }
+
+    @Test
+    void logarithmTests(){
+        // Change of base formula
+        assertEquals("2", parser.evaluate("log(10, 100)"));
+        assertEquals("3", parser.evaluate("log(2, 8)"));
+        assertEquals("1", parser.evaluate("log(5, 5)"));
+
+// Nested logs
+        assertEquals("1", parser.evaluate("log(2, 2^3) / log(2, 8)")); // Simplifies to 3 / 3
+
+// Logarithmic identity: log_b(x^y) = y * log_b(x)
+        assertEquals("6", parser.evaluate("log(2, 64)")); // 2^6
+        assertEquals("9", parser.evaluate("3 * log(2, 8)")); // Should match above
+
+    }
+    @Test
+    void stressTest(){
+        assertEquals("68719476810.5", parser.evaluate("sin(PI/6) + 2^(3*sqrt(144)) + 10*(2+3) + 4!"));
+        // Negative power with parentheses
+        assertEquals("0.25", parser.evaluate("2^(-2)"));
+
+// Factorial inside power
+        assertEquals("64", parser.evaluate("2^(3!)")); // 2^6
+
+// Operator madness
+        assertEquals("4", parser.evaluate("(((((2+2)))))"));
+
+        assertEquals("25", parser.evaluate("(log(10, 10^5))^2"));
+        assertEquals("25547.6", parser.evaluate("(7!) * log(10, (2^8 * 3^5)) + sin(pi / 3) * (9^2) / ( (log(10,50) + tan(1))^2 ) + ( (5^3 - 4^2) / cos(0.5) )^1.5"));
+
+
+    }
 }

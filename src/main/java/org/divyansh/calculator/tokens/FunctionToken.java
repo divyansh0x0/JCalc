@@ -39,7 +39,7 @@ public class FunctionToken implements Token {
                 case "sig", "signum" -> FunctionType.SIGNUM;
                 case "round" -> FunctionType.ROUND;
                 case "power", "pow" -> FunctionType.POWER;
-                case "modulo", "mod" -> FunctionType.SIN;
+                case "sqrt","square_root"->FunctionType.SQRT;
                 default -> FunctionType.UNKNOWN;
             };
         }

@@ -4,166 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Updated readme">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/examples/ConsoleCalculator.java" afterDir="false" />
+    <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Console example added. Not it is a pure library not an app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/MaterialParameters.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/Padding.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/Animation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/AnimationLibrary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/AnimationListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/AnimationTimer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/BackgroundAnimation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/ColorAnimationModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/ColorAnimationType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/Durations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/ForegroundAnimation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/Interpolator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/animation/MaterialFixedTimer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/borders/RoundedBorder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/colorspace/HSV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialComboBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialIcon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialIconButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialLabel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialMenuItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialNavButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialScrollbar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialSlider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialTextBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/MaterialTextPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/enums/LabelAlignment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/enums/LabelStyle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/enums/Orientation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/component/enums/TextBoxType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/constants/Point2D.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/constants/Size.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/constraints/LayoutConstraints.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/CustomPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/MaterialMusicTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/MaterialPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/MaterialRootPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/MaterialScrollPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/RootLayoutFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/containers/VerticalFlowLayout.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/FontSizes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/MaterialFonts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-Black.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-BlackItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-MediumItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/Roboto-ThinItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/RobotoMono-Italic-VariableFont_wght.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto/RobotoMono-VariableFont_wght.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-ExtraLight.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-ExtraLightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-MediumItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-SemiBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-SemiBoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/fonts/roboto_mono/RobotoMono-ThinItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/image/FastImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/image/FastImageProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/listeners/KeyboardKeyListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/listeners/MouseClickListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/listeners/SeekListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/listeners/SelectionListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/listeners/ToggleListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/listeners/ValueChangedListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/pooling/ObjectPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/PaddingModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/ThemeColors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/ThemeListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/ThemeManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/ButtonColors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/ColorPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/Dark.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/ElevationColors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/Light.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/MaterialColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/ThemeSelectionColors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/colors/Themeable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/enums/Elevation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/enums/ThemeType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/theme/models/ElevationModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/ColorUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/DropShadowBorder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/ImageProcessing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/MaterialGraphics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/ScrollAnimationTimer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/ShadowGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/ShadowRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/SmoothScrolling.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/tools/SmoothScrollingV2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/ui/MaterialComboBoxUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/ui/MaterialScrollbarUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/ArrayUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/BitUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/ColorConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/ComponentMover.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/ComponentResizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/FullscreenMode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/GraphicsUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/HorizontalComponentResizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/Interpolation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/Log.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/OsInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/OutputUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/PerlinNoise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/RuntimeUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/StringUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/enums/OsType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/filters/AbstractFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/filters/FastGaussianBlur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/utils/structures/LanguageCompatibleString.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/Dwmapi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialDialogWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialPopup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MaterialWindowGrip.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/MousePointer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/RootPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/User32Ex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/buttons/CaptionButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/buttons/CloseButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/buttons/MaxRestoreButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/buttons/MinimizeButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/win32procedures/BorderlessWindowProc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/win32procedures/DefaultDecorationParameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/win32procedures/DialogWindowProc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/material/window/win32procedures/PopupWindowProc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/BigDecimalMath2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/BigDecimalMath2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/BinaryOperatorNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/BinaryOperatorNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/FunctionNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/FunctionNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/CalculatorPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/FunctionButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/IKeypadHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/LatexGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/NumericButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/OperatorButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Screen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/components/SpecialKeyValues.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/examples/ConsoleCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/examples/ConsoleCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,6 +111,8 @@
     "Gradle.JCalc [:org.divyansh.examples.ConsoleCalculator.main()].executor": "Run",
     "Gradle.ParserTest.evaluate.executor": "Run",
     "Gradle.ParserTest.executor": "Run",
+    "Gradle.ParserTest.logarithmTests.executor": "Run",
+    "Gradle.ParserTest.stressTest.executor": "Run",
     "Gradle.ParserTest.testBinaryOperators.executor": "Run",
     "Gradle.ParserTest.testBrackets.executor": "Run",
     "Gradle.ParserTest.testFunctionsAndOperators.executor": "Run",
@@ -308,7 +158,7 @@
       <recent name="org.divyansh.calculator" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ConsoleCalculator">
+  <component name="RunManager" selected="Gradle.ParserTest.stressTest">
     <configuration name="ConsoleCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.divyansh.examples.ConsoleCalculator" />
       <module name="JCalc.main" />
@@ -368,7 +218,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ParserTest.testFunctionsAndOperators" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ParserTest.logarithmTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -381,7 +231,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.divyansh.calculator.ParserTest.testFunctionsAndOperators&quot;" />
+            <option value="&quot;org.divyansh.calculator.ParserTest.logarithmTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -392,7 +242,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ParserTest.testImplicitMultiplication" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ParserTest.stressTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -405,7 +255,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.divyansh.calculator.ParserTest.testImplicitMultiplication&quot;" />
+            <option value="&quot;org.divyansh.calculator.ParserTest.stressTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -418,11 +268,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ParserTest.stressTest" />
+        <item itemvalue="Gradle.ParserTest.logarithmTests" />
         <item itemvalue="Application.ConsoleCalculator" />
         <item itemvalue="Gradle.ParserTest" />
         <item itemvalue="Gradle.ComplexCalculator [run]" />
-        <item itemvalue="Gradle.ParserTest.testImplicitMultiplication" />
-        <item itemvalue="Gradle.ParserTest.testFunctionsAndOperators" />
       </list>
     </recent_temporary>
   </component>
@@ -523,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745151360002</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Console example added. Not it is a pure library not an app">
+      <option name="closed" value="true" />
+      <created>1745515413591</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745515413591</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -537,6 +395,7 @@
     <MESSAGE value="Built some UI" />
     <MESSAGE value="Implicit multiplication added" />
     <MESSAGE value="Updated readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated readme" />
+    <MESSAGE value="Console example added. Not it is a pure library not an app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Console example added. Not it is a pure library not an app" />
   </component>
 </project>

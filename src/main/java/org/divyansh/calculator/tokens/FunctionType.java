@@ -14,5 +14,6 @@ public enum FunctionType {
     FLOOR,
    POWER,
     ROUND,
+    SQRT,
     UNKNOWN
 }

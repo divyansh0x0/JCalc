@@ -71,6 +71,7 @@ public class FunctionNode extends Node {
             case FLOOR -> BigDecimalMath2.floor(arg0);
             case POWER -> BigDecimalMath.pow(arg0, arg1, MATH_CONTEXT);
             case ROUND -> arg0.round(BigDecimalMath2.MATH_CONTEXT);
+            case SQRT -> BigDecimalMath.sqrt(arg0,MATH_CONTEXT);
             default -> throw new RuntimeException("Unknown function: " + token);
         };
 
@@ -89,7 +90,7 @@ public class FunctionNode extends Node {
 
     private boolean isValidArgs() {
         return switch (token.getFunctionType()) {
-            case ABSOLUTE_VALUE, SIN, COS, TAN, SEC, COSEC, COT, SIGNUM, CEIL, FLOOR, ROUND -> args.length == 1;
+            case ABSOLUTE_VALUE, SIN, COS, TAN, SEC, COSEC, COT, SIGNUM, CEIL, FLOOR, ROUND, SQRT -> args.length == 1;
             case LOG, POWER -> args.length == 2;
             case UNKNOWN -> throw new RuntimeException("UNKNOWN FUNCTION: " + token);
         };
