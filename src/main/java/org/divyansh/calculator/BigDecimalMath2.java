@@ -1,7 +1,6 @@
 package org.divyansh.calculator;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
-import org.divyansh.Main;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -36,7 +35,7 @@ public class BigDecimalMath2 {
             "141441973568548161361157352552133475741849468438523323907394143334547762416862" +
             "518983569485562099219222184272550254256887671790494601653466804988627232791786";
     private static final int OUTPUT_PRECISION = 10;
-    public static final MathContext MATH_CONTEXT = Main.MATH_CONTEXT;
+    public static final MathContext MATH_CONTEXT = new MathContext(128,RoundingMode.HALF_EVEN);
     private static final BigDecimal MINUS_ONE = BigDecimal.ONE.negate();
     public static final BigDecimal PI = new BigDecimal(getPi(50));
 

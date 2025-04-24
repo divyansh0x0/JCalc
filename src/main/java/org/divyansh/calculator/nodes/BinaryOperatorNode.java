@@ -1,15 +1,12 @@
 package org.divyansh.calculator.nodes;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
-import material.utils.Log;
-import org.divyansh.Main;
-import org.divyansh.calculator.BigDecimalMath2;
 import org.divyansh.calculator.tokens.OperatorToken;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 public class BinaryOperatorNode extends Node {
 
@@ -30,7 +27,8 @@ public class BinaryOperatorNode extends Node {
             final BigDecimal leftOperand = this.leftOperand.evaluateValue();
             final BigDecimal rightOperand = this.rightOperand.evaluateValue();
 
-            MathContext mc = Main.MATH_CONTEXT;
+            MathContext mathContext =   new MathContext(128, RoundingMode.HALF_EVEN);
+        ;
             if (leftOperand == null)
                 throw new NullPointerException("LEFT OPERAND IS NULL FOR BINARY OPERATOR: " + op);
             if (rightOperand == null)
@@ -38,10 +36,10 @@ public class BinaryOperatorNode extends Node {
             return switch (op.getOperatorType()) {
                 case PLUS -> leftOperand.add(rightOperand);
                 case MINUS -> leftOperand.subtract(rightOperand);
-                case DIVISION -> leftOperand.divide(rightOperand, mc);
+                case DIVISION -> leftOperand.divide(rightOperand, mathContext);
                 case MULTIPLICATION -> leftOperand.multiply(rightOperand);
                 case REMAINDER -> leftOperand.remainder(rightOperand);
-                case EXPONENTIATION -> BigDecimalMath.pow(leftOperand, rightOperand, mc);
+                case EXPONENTIATION -> BigDecimalMath.pow(leftOperand, rightOperand, mathContext);
                 default -> throw new UnsupportedOperationException("UNKNOWN OPERATION: " + op);
             };
     }
@@ -57,7 +55,7 @@ public class BinaryOperatorNode extends Node {
                     %s
                     %s""").formatted(REPEATER.repeat(level), CONNECTOR, op.getOperatorType(), op.getValue(), leftOperand, rightOperand);
         } catch (StackOverflowError e) {
-            Log.error("STACK OVERFLOW OCCURRED AT DEPTH: " + this.level + " WITH OPERATOR: " + op);
+//            System.out.println("STACK OVERFLOW OCCURRED AT DEPTH: " + this.level + " WITH OPERATOR: " + op);
             return "--STACK OVERFLOW--";
         }
     }

@@ -1,6 +1,5 @@
 package org.divyansh.calculator;
 
-import material.utils.Log;
 import org.divyansh.calculator.nodes.*;
 import org.divyansh.calculator.tokens.*;
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +29,6 @@ public class Parser {
         Node root = getAst(new Lexer(exp));
 
         // Log the created AST
-        Log.info("AST CREATED:\n" + root);
         if(root == null)
             return "";
         // Evaluate the value of the root node and strip trailing zeroes and return it

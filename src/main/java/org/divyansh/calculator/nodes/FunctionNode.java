@@ -1,12 +1,10 @@
 package org.divyansh.calculator.nodes;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
-import org.divyansh.Main;
 import org.divyansh.calculator.BigDecimalMath2;
 import org.divyansh.calculator.tokens.FunctionToken;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 
 public class FunctionNode extends Node {
 
@@ -21,7 +19,6 @@ public class FunctionNode extends Node {
     @Override
     public BigDecimal evaluateValue() {
         if (!isValidArgs()) throwError();
-        MathContext mc = Main.MATH_CONTEXT;
         final BigDecimal arg0 = args[0].evaluateValue();
         BigDecimal arg1 = null;
         if (args.length > 1)
@@ -29,34 +26,34 @@ public class FunctionNode extends Node {
 
         return switch (token.getFunctionType()) {
             case ABSOLUTE_VALUE -> arg0.abs();
-            case SIN -> BigDecimalMath.sin(arg0,mc);
-            case COS -> BigDecimalMath.cos(arg0,mc);
+            case SIN -> BigDecimalMath.sin(arg0, MATH_CONTEXT);
+            case COS -> BigDecimalMath.cos(arg0, MATH_CONTEXT);
 
             case TAN -> {
-                BigDecimal cos = BigDecimalMath.cos(arg0,mc);
+                BigDecimal cos = BigDecimalMath.cos(arg0, MATH_CONTEXT);
                 if (cos.equals(BigDecimal.ZERO))
                     throw new ArithmeticException("TAN is undefined " + arg0);
-                yield BigDecimalMath.sin(arg0,mc).divide(cos, BigDecimalMath2.MATH_CONTEXT);
+                yield BigDecimalMath.sin(arg0, MATH_CONTEXT).divide(cos, BigDecimalMath2.MATH_CONTEXT);
             }
 
             case COSEC -> {
-                BigDecimal sin = BigDecimalMath.sin(arg0,mc);
+                BigDecimal sin = BigDecimalMath.sin(arg0, MATH_CONTEXT);
                 if (sin.compareTo(BigDecimal.ZERO) == 0)
                     throw new ArithmeticException("COSEC is undefined for " + arg0);
                 yield BigDecimal.ONE.divide(sin, BigDecimalMath2.MATH_CONTEXT);
             }
             case SEC -> {
 
-                BigDecimal cos = BigDecimalMath.cos(arg0,mc);
+                BigDecimal cos = BigDecimalMath.cos(arg0, MATH_CONTEXT);
                 if (cos.compareTo(BigDecimal.ZERO) == 0)
                     throw new ArithmeticException("SEC is undefined for " + arg0);
                 yield BigDecimal.ONE.divide(cos, BigDecimalMath2.MATH_CONTEXT);
             }
             case COT -> {
-                BigDecimal sin = BigDecimalMath.cos(arg0,mc);
+                BigDecimal sin = BigDecimalMath.cos(arg0, MATH_CONTEXT);
                 if (sin.compareTo(BigDecimal.ZERO) == 0)
                     throw new ArithmeticException("TAN is undefined " + arg0);
-                yield BigDecimalMath.cos(arg0,mc).divide(sin, BigDecimalMath2.MATH_CONTEXT);
+                yield BigDecimalMath.cos(arg0, MATH_CONTEXT).divide(sin, BigDecimalMath2.MATH_CONTEXT);
             }
             case LOG -> {
                 if (arg0.compareTo(BigDecimal.ZERO) > 0 && arg0.compareTo(BigDecimal.ONE) != 0) {//arg0 ie base of log cannot be negative or 1
@@ -72,7 +69,7 @@ public class FunctionNode extends Node {
             case SIGNUM -> BigDecimalMath2.signum(arg0);
             case CEIL -> BigDecimalMath2.ceil(arg0);
             case FLOOR -> BigDecimalMath2.floor(arg0);
-            case POWER -> BigDecimalMath.pow(arg0, arg1, mc);
+            case POWER -> BigDecimalMath.pow(arg0, arg1, MATH_CONTEXT);
             case ROUND -> arg0.round(BigDecimalMath2.MATH_CONTEXT);
             default -> throw new RuntimeException("Unknown function: " + token);
         };
