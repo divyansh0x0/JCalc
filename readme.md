@@ -3,7 +3,7 @@
 
 A fully functional calculator written in java that can parse any mathematical expression (with correct syntax)
 
-
+https://github.com/user-attachments/assets/53cad87d-034b-4869-9aab-bfc04f5811d9
 
 ## Functions Supported:
 * All trigonometric functions
