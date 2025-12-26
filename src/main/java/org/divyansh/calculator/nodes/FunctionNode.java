@@ -92,7 +92,7 @@ public class FunctionNode extends Node {
         return switch (token.getFunctionType()) {
             case ABSOLUTE_VALUE, SIN, COS, TAN, SEC, COSEC, COT, SIGNUM, CEIL, FLOOR, ROUND, SQRT -> args.length == 1;
             case LOG, POWER -> args.length == 2;
-            case UNKNOWN -> throw new RuntimeException("UNKNOWN FUNCTION: " + token);
+            case UNKNOWN -> throw new RuntimeException("Unknown function: " + token);
         };
     }
 

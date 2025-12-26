@@ -7,7 +7,7 @@ import java.util.Objects;
 public class FunctionToken implements Token {
     private final String name;
     private FunctionType type;
-    private String base;
+    private String base; //base is used in functions like log
     private static final HashMap<FunctionType, FunctionToken> cache = new HashMap<>();
 
     public static FunctionToken create(FunctionType functionType){
@@ -61,6 +61,6 @@ public class FunctionToken implements Token {
 
     @Override
     public String toString() {
-        return name + "_" + (base == null ? "" : base);
+        return name + (base == null ? "(...)" : "_" + base);
     }
 }

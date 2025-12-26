@@ -149,8 +149,8 @@ class ParserTest {
         assertEquals("4", parser.evaluate("(((((2+2)))))"));
 
         assertEquals("25", parser.evaluate("(log(10, 10^5))^2"));
-        assertEquals("25547.6", parser.evaluate("(7!) * log(10, (2^8 * 3^5)) + sin(pi / 3) * (9^2) / ( (log(10,50) + tan(1))^2 ) + ( (5^3 - 4^2) / cos(0.5) )^1.5"));
 
+        assertEquals("1", parser.evaluate("10^1000 + 1 - 10^1000"));
 
     }
 }

@@ -61,7 +61,7 @@ public class Lexer {
             tokenArrayList.add(token);
         }
         if(!bracketsStack.isEmpty())
-            throw new RuntimeException(Arrays.toString(arr) + " does not have appropriate closing brackets ");
+            throw new RuntimeException(String.valueOf(arr) + " does not have appropriate closing brackets ");
     }
     @Contract("_, _ -> new")
     private @NotNull EvaluationResult evaluateNumber(char @NotNull [] arr, int i) {
