@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="211a818c-9ec4-4cf5-b4cd-d48f47e13468" name="Changes" comment="Fixed a bug in parser which was resulted when a bracket was followed by exponentiation `(a)^b`.&#10;Added more tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/FunctionNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/nodes/FunctionNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/FunctionToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/divyansh/calculator/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/divyansh/calculator/tokens/NumberToken.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +44,12 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="JCalc" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -72,12 +77,12 @@
     &quot;assignee&quot;: &quot;divyansh0x0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/divyansh0x0/JCalc.git",
-    "accountId": "ad2ebaca-e259-406a-934f-e20e8ad75a05"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/divyansh0x0/JCalc.git&quot;,
+    &quot;accountId&quot;: &quot;ad2ebaca-e259-406a-934f-e20e8ad75a05&quot;
   }
-}]]></component>
+}</component>
   <component name="JavaAutoRunManager">
     <enabled-run-configurations>
       <run-configuration type="GradleRunConfiguration" name="ParserTest.stressTest" />
@@ -102,7 +107,9 @@
     "Gradle.JCalc [:org.divyansh.examples.ConsoleCalculator.main()].executor": "Run",
     "Gradle.JCalc [assemble].executor": "Run",
     "Gradle.JCalc [build].executor": "Run",
+    "Gradle.JCalc [examplesJar].executor": "Run",
     "Gradle.JCalc [jar].executor": "Run",
+    "Gradle.JCalc [shadowJar].executor": "Run",
     "Gradle.ParserTest.evaluate.executor": "Run",
     "Gradle.ParserTest.executor": "Run",
     "Gradle.ParserTest.logarithmTests.executor": "Run",
@@ -113,6 +120,9 @@
     "Gradle.ParserTest.testImplicitMultiplication.executor": "Run",
     "Gradle.ParserTest.testUnaryOperators.executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
+    "JAR Application.JCalc-1.0.0-all.jar.executor": "Run",
+    "JAR Application.JCalc-1.0.0.jar.executor": "Run",
+    "JAR Application.console app-1.0.0.jar.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -166,7 +176,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JCalc [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="JCalc [examplesJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -177,7 +187,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="assemble" />
+            <option value="examplesJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -188,81 +198,25 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="JCalc [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+    <configuration name="JCalc-1.0.0-all.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/JCalc-1.0.0-all.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="JCalc [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+    <configuration name="JCalc-1.0.0.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/JCalc-1.0.0.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="ParserTest.stressTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.divyansh.calculator.ParserTest.stressTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+    <configuration name="console app-1.0.0.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/console app-1.0.0.jar" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ConsoleCalculator" />
-        <item itemvalue="Gradle.JCalc [jar]" />
-        <item itemvalue="Gradle.JCalc [build]" />
-        <item itemvalue="Gradle.JCalc [assemble]" />
-        <item itemvalue="Gradle.ParserTest.stressTest" />
+        <item itemvalue="JAR Application.console app-1.0.0.jar" />
+        <item itemvalue="Gradle.JCalc [examplesJar]" />
+        <item itemvalue="JAR Application.JCalc-1.0.0.jar" />
+        <item itemvalue="JAR Application.JCalc-1.0.0-all.jar" />
       </list>
     </recent_temporary>
   </component>

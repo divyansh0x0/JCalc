@@ -1,5 +1,8 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 java {
     toolchain {
@@ -22,4 +25,14 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+tasks.register('examplesJar', ShadowJar) {
+    archiveBaseName.set('console app')
+    archiveVersion.set('1.0.0')
+    from sourceSets.main.output
+
+    // Set the main class for your example
+    manifest {
+        attributes 'Main-Class': 'org.divyansh.examples.ConsoleCalculator'
+    }
 }
